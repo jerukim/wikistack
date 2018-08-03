@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-// const static = express.static();
+const { db } = require('./models');
 const layout = require('./views/layout');
 
 const app = express();
@@ -14,6 +14,11 @@ app.use(express.static(__dirname + '/stylesheets'));
 app.get('/', (req, res) => {
   res.send(layout(''));
 });
+
+db.authenticate().
+then(() => {
+  console.log('connected to the database');
+})
 
 const PORT = 3000;
 
