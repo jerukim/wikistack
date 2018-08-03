@@ -20,6 +20,7 @@ then(() => {
   console.log('connected to the database');
 })
 
+
 const PORT = 3000;
 
 app.listen(PORT, () => {
